@@ -20,20 +20,6 @@ months = [
     "December"
 ]
 
-data = {
-    "EX_TRUNK_SOM": [
-        [1, "SUCCESS", "01:13:12", 5, 4, 3],
-        [2, "SUCCESS", "00:23:12", 5, 4, 3],
-        [3, "FAILURE", "00:03:12", 5, 4, 3],
-        [4, "ABORTED", "00:13:12", 5, 4, 3]],
-    "EX_TRS_ME": [
-        [11, "SUCCESS", "01:13:12", 5, 4, 3],
-        [12, "SUCCESS", "00:23:12", 5, 4, 3],
-        [13, "FAILURE", "00:03:12", 5, 4, 3],
-        [14, "ABORTED", "00:13:12", 5, 4, 3]],
-    "EX_MT": [[]]
-}
-
 
 def write_data_to_excel(data):
     # get Current Month
