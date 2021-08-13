@@ -106,9 +106,6 @@ def write_data_to_excel(data):
     workbook.close()
 
 
-write_data_to_excel(data)
-
-
 def get_data_from_db():
     current_month = months[datetime.datetime.now().month - 1]
     current_year = datetime.datetime.now().year
@@ -119,17 +116,24 @@ def get_data_from_db():
     return_data = {}
 
     for record in build_data:
-        if not return_data.get(record[0]):
-            return_data[record[0]] = []
+        if not return_data.get(record.get("job_name")):
+            return_data[record.get("job_name")] = []
 
-        return_data[record[0]].append(record[1:])
+        return_data[record.get("job_name")].append([
+            record.get("job_id"),
+            record.get("build_status"),
+            record.get("build_exec_time"),
+            record.get("total_ut_test_case") - record.get("failed_test_case"),
+            record.get("failed_test_case"),
+            record.get("total_ut_test_case")
+        ])
 
     return return_data
 
 
 def main():
     build_data = get_data_from_db()
-    write_data_to_excel(data)
+    write_data_to_excel(build_data)
 
 
 main()
